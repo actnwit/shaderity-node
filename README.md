@@ -1,6 +1,6 @@
 # shaderity-node
 
-shaderity-node is the core part of Shaderity.
+shaderity-node is the core part of the shaderity-loader.
 
 ## How to use
 
