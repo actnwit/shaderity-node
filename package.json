@@ -11,7 +11,8 @@
     "test": "yarn test-unit",
     "test-unit": "jest --config jest.config.js ./test",
     "test-coverage": "jest --coverage",
-    "doc": "typedoc --includeDeclarations --ignoreCompilerErrors --exclude '**/*+(test|d).ts' --out ./docs/ ./src/"
+    "doc": "typedoc --exclude '**/*+(test|d).ts' --out ./docs/ ./src/",
+    "yarn-pack": "npx yarn pack -f shaderity-node-tmp.tgz"
   },
   "repository": {
     "type": "git",
@@ -26,12 +27,15 @@
     "url": "https://github.com/emadurandal/shaderity-node/issues"
   },
   "dependencies": {
+  },
+  "devDependencies": {
     "@types/jest": "^24.0.13",
     "@types/node": "^12.6.2",
+    "jest": "^27.0.3",
+    "ts-jest": "^24.0.2",
     "ts-loader": "^6.0.2",
-    "typedoc": "^0.14.2",
-    "typescript": "^3.7.2",
-    "ts-jest": "^24.0.2"
+    "typedoc": "^0.20.36",
+    "typescript": "^3.7.2"
   },
   "homepage": "https://github.com/emadurandal/shaderity-node#readme"
 }
