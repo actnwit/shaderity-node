@@ -11,7 +11,8 @@
     "test": "yarn test-unit",
     "test-unit": "jest --config jest.config.js ./test",
     "test-coverage": "jest --coverage",
-    "doc": "typedoc --exclude '**/*+(test|d).ts' --out ./docs/ ./src/"
+    "doc": "typedoc --exclude '**/*+(test|d).ts' --out ./docs/ ./src/",
+    "yarn-pack": "npx yarn pack -f shaderity-node-tmp.tgz"
   },
   "repository": {
     "type": "git",
