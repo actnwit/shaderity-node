@@ -21,6 +21,10 @@ function fileExtension(path: string) {
   return ext;
 }
 
+/**
+ * Determine which shader stage is used, vertex or fragment, from the file extension.
+ * If the extension is 'vs' or 'vert', this method returns 'vertex', otherwise returns 'fragment'.
+ */
 export function shaderStage(resourcePath: string) {
   if (isVertexShader(resourcePath)) {
     return 'vertex';
@@ -29,6 +33,12 @@ export function shaderStage(resourcePath: string) {
   }
 }
 
+/**
+ * Expand the shader code.
+ *
+ * If there is a description "#pragma shaderity: require(path)",
+ * substitute the contents of the file in (argument resourcePath)/(path) into it.
+ */
 export function requireFile(source: string, resourcePath: string) {
   const basePath = path.dirname(resourcePath) + '/';
   const arr = source.split(/\r\n|\n/);
