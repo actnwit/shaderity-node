@@ -14,34 +14,11 @@ function isVertexShader(path: string) {
   }
 }
 
-function isFragmentShader(path: string) {
-  const ext = fileExtension(path);
-  if (ext == 'fs' || ext == 'ps' || ext == 'frag') {
-    return true;
-  } else {
-    return false;
-  }
-}
-
 function fileExtension(path: string) {
   const splitted = path.split('.');
   const ext = splitted[splitted.length - 1];
 
   return ext;
-}
-
-function convertIn(str: string, resourcePath: string) {
-  const inReg = /([\s\S]*)in /;
-  let inAsES1 = 'attribute ';
-  if (isFragmentShader(resourcePath)) {
-    inAsES1 = 'varying ';
-  }
-  return str.replace(inReg, '$1' + inAsES1);
-}
-
-function transform(str: string, resourcePath: string) {
-  str = convertIn(str, resourcePath);
-  return str;
 }
 
 export function shaderStage(resourcePath: string) {
