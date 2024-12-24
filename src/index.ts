@@ -6,19 +6,28 @@ if(isNode()) {
 }
 
 function isVertexShader(path: string) {
-  const ext = fileExtension(path);
-  if (ext == 'vs' || ext == 'vert') {
+  if (includeWordsInFileExtension(path, ['vs', 'vert'])) {
     return true;
   } else {
     return false;
   }
 }
 
-function fileExtension(path: string) {
+function includeWordsInFileExtension(path: string, words: string[]) {
   const splitted = path.split('.');
-  const ext = splitted[splitted.length - 1];
-
-  return ext;
+  if (splitted.length >= 2) {
+    for (let i = 0; i < words.length; i++) {
+      if (splitted[splitted.length - 1].includes(words[i])) {
+        return true;
+      }
+      if (splitted.length >= 3) {
+        if (splitted[splitted.length - 2].includes(words[i])) {
+          return true;
+        }
+      }
+    }
+  }
+  return false;
 }
 
 /**
