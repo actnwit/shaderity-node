@@ -1,3 +1,5 @@
+import { PreProcessor } from "./PreProcessor";
+
 var isNode=new Function("try {return this===global;}catch(e){return false;}");
 
 if(isNode()) {
@@ -65,7 +67,9 @@ export function requireFile(source: string, resourcePath: string) {
     }
   }
 
-  const requredShaderText = newArr.join('\n');
+  const processedShaderTextArr = PreProcessor.process(newArr);
+
+  const requredShaderText = processedShaderTextArr.join('\n');
 
   return requredShaderText;
 }
